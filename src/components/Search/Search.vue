@@ -1,6 +1,16 @@
 <template>
-  <van-search v-model="value" placeholder="请输入搜索关键词" show-action shape="round" @search="onSearch">
-    <div slot="action" @click="onSearch">搜索</div>
+  <van-search
+    class="search"
+    v-model="value"
+    placeholder="请输入搜索关键词"
+    shape="round"
+    show-action
+    input-align="center"
+  >
+    <div slot="action">
+      <!-- <span class="icon iconfont icon-xiaoxi"></span> -->
+      <van-icon class="xiaoxi" name="envelop-o" dot />
+    </div>
   </van-search>
 </template>
 <script>
@@ -13,4 +23,12 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.search {
+  float: right;
+  width: 60%;
+
+  .xiaoxi {
+    font-size: 20px;
+  }
+}</style>

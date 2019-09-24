@@ -50,11 +50,6 @@ export default {
   // padding-top: 46px;
 }
 
-.nav {
-  // background: #07c160;
-  // border-bottom: 1px solid #e4e2e2;
-}
-
 .pos {
   display: flex;
   text-align: center;

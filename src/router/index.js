@@ -22,9 +22,19 @@ export default new Router({
       component: resolve => require(['@/views/Sort/Sort.vue'], resolve)
     },
     {
+      path: '/MedicalApp/interrogation',
+      name: 'Interrogation',
+      component: resolve => require(['@/views/Interrogation/Interrogation.vue'], resolve)
+    },
+    {
+      path: '/MedicalApp/news',
+      name: 'News',
+      component: resolve => require(['@/views/News/News.vue'], resolve)
+    },
+    {
       path: '/MedicalApp/mine',
       name: 'Mine',
-      component: resolve => require(['@/views/Mine/mine.vue'], resolve)
+      component: resolve => require(['@/views/Mine/Mine.vue'], resolve)
     }
   ]
 })
