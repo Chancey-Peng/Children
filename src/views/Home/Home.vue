@@ -3,25 +3,28 @@
     <div class="navbar" :class="{NavBarFixed:isFixed}">
       <NavBar></NavBar>
     </div>
-    <!-- <van-pull-refresh v-model="isLoading" @refresh="onRefresh"></van-pull-refresh> -->
-    <swipe></swipe>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
-    <h1>1245646546546515</h1>
+    <div class="conter">
+      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+        <swipe></swipe>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+      </van-pull-refresh>
+    </div>
   </div>
 </template>
 <script>
@@ -32,8 +35,8 @@ export default {
   name: "Home",
   data() {
     return {
-      isFixed: false
-      // isLoading: false
+      isFixed: false,
+      isLoading: false
     };
   },
   methods: {
@@ -50,13 +53,13 @@ export default {
       } else {
         this.isFixed = false;
       }
+    },
+    onRefresh() {
+      setTimeout(() => {
+        this.$toast("刷新成功");
+        this.isLoading = false;
+      }, 500);
     }
-    // onRefresh() {
-    //   setTimeout(() => {
-    //     this.$toast("刷新成功");
-    //     this.isLoading = false;
-    //   }, 500);
-    // }
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
@@ -77,15 +80,18 @@ export default {
 
   // padding: 0px 40px 56px 56px;
   .navbar {
-    // position: absolute;
-    // top: 0px;
-    // z-index: 1;
     background: rgb(255, 255, 255);
+  }
+
+  .conter {
+    padding-top: 54px;
+    text-align: center;
   }
 
   .NavBarFixed {
     position: fixed;
     top: 0px;
+    z-index: 2;
   }
 }
 </style>
