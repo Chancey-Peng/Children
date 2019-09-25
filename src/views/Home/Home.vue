@@ -4,8 +4,19 @@
       <NavBar></NavBar>
     </div>
     <div class="conter">
-      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+      <van-pull-refresh
+        v-model="isLoading"
+        @refresh="onRefresh"
+        loosing-text="已显示最新内容"
+        loading-text="努力加载中.."
+        success-text="已显示最新内容"
+      >
         <swipe></swipe>
+        <h1>fastclick安装依赖在main中import再绑定到fastClick.attach(document.body)</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
         <h1>1245646546546515</h1>
         <h1>1245646546546515</h1>
         <h1>1245646546546515</h1>
@@ -56,7 +67,7 @@ export default {
     },
     onRefresh() {
       setTimeout(() => {
-        this.$toast("刷新成功");
+        this.$toast("加载成功");
         this.isLoading = false;
       }, 500);
     }

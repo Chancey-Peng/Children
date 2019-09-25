@@ -8,6 +8,9 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 
 import './common/icons/stylus/index.styl'
+import '../static/css/reset.css'
+// 解决手机端一像素问题
+import '../static/css/border.css'
 
 Vue.config.productionTip = false
 
