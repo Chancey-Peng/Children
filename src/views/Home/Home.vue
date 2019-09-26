@@ -12,7 +12,19 @@
         success-text="已显示最新内容"
       >
         <swipe></swipe>
-        <h1>fastclick安装依赖在main中import再绑定到fastClick.attach(document.body)</h1>
+        <list-swipe></list-swipe>
+        <h1>fastclick安装依赖在main中import再绑定到fastClick.attach(document.body)解决移动端300毫秒延迟问题</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
+        <h1>1245646546546515</h1>
         <h1>1245646546546515</h1>
         <h1>1245646546546515</h1>
         <h1>1245646546546515</h1>
@@ -42,6 +54,7 @@
 // import Search from "../../components/Search/Search.vue";
 import NavBar from "../../components/NavBar/NavBar.vue";
 import Swipe from "../../components/Swipe/Swipe.vue";
+import ListSwipe from "../../components/Swipe/ListSwiper.vue";
 export default {
   name: "Home",
   data() {
@@ -80,7 +93,8 @@ export default {
   },
   components: {
     NavBar,
-    Swipe
+    Swipe,
+    ListSwipe
   }
 };
 </script>
