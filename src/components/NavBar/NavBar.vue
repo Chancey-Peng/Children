@@ -31,6 +31,7 @@ export default {
   // background: rgb(255, 255, 255);
   .conter {
     float: left;
+    background: rgb(255, 255, 255);
   }
 
   // background: #07c160;
@@ -40,7 +41,7 @@ export default {
   }
 
   .msgloaction {
-    width: 103px;
+    width: 104px;
     margin: 0;
     padding: 0;
     display: inline-block;

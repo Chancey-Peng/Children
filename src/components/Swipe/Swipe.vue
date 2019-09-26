@@ -12,11 +12,10 @@ export default {
   data() {
     return {
       images: [
-        "https://img.yzcdn.cn/vant/apple-1.jpg",
-        "https://img.yzcdn.cn/vant/apple-2.jpg",
-        "https://img.yzcdn.cn/vant/apple-2.jpg",
-        "https://img.yzcdn.cn/vant/apple-2.jpg",
-        "https://img.yzcdn.cn/vant/apple-2.jpg"
+        "https://n2.hdfimg.com/g3/M02/C8/A1/v4YBAF2IOYaAQ9HzAAC6ra0Su6c112.jpg",
+        "https://n3.hdfimg.com/g3/M02/C8/A1/xYYBAF2IOYeAelBNAANn7DKYE-A240.png",
+        "https://n4.hdfimg.com/g3/M02/C8/A1/v4YBAF2IOYiAGw0dAAEk6uJBcAo748.jpg",
+        "https://n1.hdfimg.com/g2/M02/BC/78/yIYBAF2J23mASTdXAADZ2dYqFj0109.jpg"
       ]
     };
   },
@@ -27,7 +26,7 @@ export default {
 .swipe {
   width: 90%;
   height: 120px;
-  margin: 0px auto;
+  margin: 15px auto;
   // background: #07c160;
   border-radius: 10px;
   z-index: -1;

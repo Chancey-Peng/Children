@@ -76,7 +76,7 @@ export default {
 <style lang="stylus" scoped>
 // @import '../../../../../common/icons/stylus/department.styl';
 .listswipe {
-  margin: 20px auto;
+  margin: 5px auto;
   width: 90%;
   height: 140px;
   border-radius: 10px;

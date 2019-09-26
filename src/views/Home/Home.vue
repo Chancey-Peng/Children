@@ -13,6 +13,7 @@
       >
         <swipe></swipe>
         <list-swipe></list-swipe>
+        <notice-bar></notice-bar>
         <h1>fastclick安装依赖在main中import再绑定到fastClick.attach(document.body)解决移动端300毫秒延迟问题</h1>
         <h1>1245646546546515</h1>
         <h1>1245646546546515</h1>
@@ -55,6 +56,7 @@
 import NavBar from "../../components/NavBar/NavBar.vue";
 import Swipe from "../../components/Swipe/Swipe.vue";
 import ListSwipe from "../../components/Swipe/ListSwiper.vue";
+import NoticeBar from "../../components/NoticeBar/NoticeBar.vue";
 export default {
   name: "Home",
   data() {
@@ -94,7 +96,8 @@ export default {
   components: {
     NavBar,
     Swipe,
-    ListSwipe
+    ListSwipe,
+    NoticeBar
   }
 };
 </script>
