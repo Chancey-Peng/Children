@@ -118,6 +118,7 @@ export default {
 
   .NavBarFixed {
     position: fixed;
+    width: 100%;
     top: 0px;
     z-index: 2;
   }
