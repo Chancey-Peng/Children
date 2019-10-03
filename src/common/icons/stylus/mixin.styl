@@ -1,0 +1,30 @@
+.left {
+  &:after {
+    float: right;
+    content: '';
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-width: 1px 1px 0 0;
+    border-color: #bfbfbf;
+    border-style: solid;
+    transform: rotate(46deg);
+    margin-right: 10px;
+    position: relative;
+    top: 9.5px;
+  }
+}
+
+border-1px($color) {
+  position: relative;
+
+  &:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid $color;
+    content: ' ';
+  }
+}

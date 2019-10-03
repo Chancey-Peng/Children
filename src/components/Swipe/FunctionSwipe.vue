@@ -36,7 +36,7 @@ export default {
 <style lang="stylus" scoped>
 .functionswipe {
   display: flex;
-  margin: 5px auto;
+  margin: 10px auto;
   width: 90%;
   height: 100px;
 
@@ -54,7 +54,7 @@ export default {
   img {
     float: right;
     width: 50%;
-    height: 100%;
+    height: 99%;
   }
 
   p {
@@ -80,6 +80,9 @@ export default {
   .subscribe {
     width: 50%;
     height: 100px;
+    // margin-top: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 1px #808080;
 
     // background: #f3f5f7;
     // border: 1px solid #7e8c8d;
@@ -94,6 +97,9 @@ export default {
     .hospital {
       width: 100%;
       height: 50px;
+      // margin-top: 5px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 1px #808080;
       // background: blue;
       // border: 1px solid #808080;
     }
@@ -101,6 +107,9 @@ export default {
     .doctor {
       width: 100%;
       height: 50px;
+      // margin-top: 2px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 1px #808080;
       // background: yellow;
       // border: 1px solid #808080;
     }
