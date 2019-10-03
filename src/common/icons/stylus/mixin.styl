@@ -28,3 +28,20 @@ border-1px($color) {
     content: ' ';
   }
 }
+
+.border-block {
+  &:before {
+    float: left;
+    position: relative;
+    content: '';
+    display: inline-block;
+    height: 15px;
+    width: 2px;
+    border-width: 1px 1px 0 0;
+    border-color: #ff0000;
+    border-style: solid;
+    background: #ff0000;
+    margin-right: 5px;
+    top: 5px;
+  }
+}

@@ -16,6 +16,8 @@
         <function-swipe></function-swipe>
         <notice-bar></notice-bar>
         <today></today>
+        <!-- <Propaganda></Propaganda> -->
+        <index></index>
         <h1>fastclick安装依赖在main中import再绑定到fastClick.attach(document.body)解决移动端300毫秒延迟问题</h1>
         <h1>1245646546546515</h1>
         <h1>1245646546546515</h1>
@@ -61,6 +63,8 @@ import ListSwipe from "../../components/Swipe/ListSwiper.vue";
 import FunctionSwipe from "../../components/Swipe/FunctionSwipe.vue";
 import NoticeBar from "../../components/NoticeBar/NoticeBar.vue";
 import Today from "../../components/SpecialColumn/Today.vue";
+import Propaganda from "../../components/SpecialColumn/Area/Propaganda.vue";
+import index from "../../components/SpecialColumn/Area/index.vue";
 export default {
   name: "Home",
   data() {
@@ -103,7 +107,9 @@ export default {
     ListSwipe,
     FunctionSwipe,
     NoticeBar,
-    Today
+    Today,
+    Propaganda,
+    index
   }
 };
 </script>
