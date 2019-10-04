@@ -18,6 +18,7 @@
         <today></today>
         <!-- <Propaganda></Propaganda> -->
         <index></index>
+        <base-line></base-line>
       </van-pull-refresh>
     </div>
   </div>
@@ -32,6 +33,7 @@ import NoticeBar from "../../components/NoticeBar/NoticeBar.vue";
 import Today from "../../components/SpecialColumn/Today.vue";
 import Propaganda from "../../components/SpecialColumn/Area/Propaganda.vue";
 import index from "../../components/SpecialColumn/Area/index.vue";
+import BaseLine from "../../components/BaseLine/BaseLine.vue";
 export default {
   name: "Home",
   data() {
@@ -76,7 +78,8 @@ export default {
     NoticeBar,
     Today,
     Propaganda,
-    index
+    index,
+    BaseLine
   }
 };
 </script>

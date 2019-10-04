@@ -2,11 +2,13 @@
   <div class="index">
     <Propaganda></Propaganda>
     <Activity></Activity>
+    <project></project>
   </div>
 </template>
 <script>
-import Propaganda from "../Area/Propaganda.vue";
-import Activity from "../Area/Activity.vue";
+import Propaganda from "./Propaganda.vue";
+import Activity from "./Activity.vue";
+import Project from "./Project.vue";
 export default {
   name: "index",
   data() {
@@ -14,7 +16,8 @@ export default {
   },
   components: {
     Propaganda,
-    Activity
+    Activity,
+    Project
   }
 };
 </script>
