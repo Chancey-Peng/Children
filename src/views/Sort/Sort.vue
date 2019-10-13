@@ -16,29 +16,31 @@
     </div>
     <div class="conter">
       <van-tree-select
-        class="tree"
+        class="tree-wrapper"
         height="auto"
         :items="items"
         :main-active-index.sync="activeIndex"
       >
         <template slot="content">
-          <div class="sort-wrapper" v-if="activeIndex === 0">
-            <div class="imgurl">
-              <img src="https://img.yzcdn.cn/vant/apple-1.jpg" alt />
-            </div>
-            <div class="title">全科老中医</div>
-            <div class="sortWrapper">
-              <ul>
-                <li class="icons" v-for="(item,key) in imglist" :key="key">
-                  <a>
-                    <img :src="item.imgurl" alt />
-                    <p>{{item.name}}</p>
-                  </a>
-                </li>
-              </ul>
+          <div v-for="(item,index) in conterList" :key="index">
+            <div class="sort-wrapper" ref="conterWrapper" v-if="activeIndex === index">
+              <div class="imgurl">
+                <img :src="item.bannerurl" alt />
+              </div>
+              <div class="title">{{item.text}}</div>
+              <div class="sortWrapper">
+                <ul>
+                  <li class="icons" v-for="(item,key) in item.keshi" :key="key">
+                    <a>
+                      <img :src="item.imgurl" alt />
+                      <p>{{item.name}}</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          <!-- <van-image v-if="activeIndex === 0" src="https://img.yzcdn.cn/vant/apple-1.jpg" /> -->
+          <!-- <van-image v-if="activeIndex === 0" src="https://img.yzcdn.cn/vant/apple-1.jpg" />
           <van-image v-if="activeIndex === 1" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
           <van-image v-if="activeIndex === 2" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
           <van-image v-if="activeIndex === 3" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
@@ -54,13 +56,14 @@
           <van-image v-if="activeIndex === 13" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
           <van-image v-if="activeIndex === 14" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
           <van-image v-if="activeIndex === 15" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
-          <van-image v-if="activeIndex === 16" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
+          <van-image v-if="activeIndex === 16" src="https://img.yzcdn.cn/vant/apple-2.jpg" />-->
         </template>
       </van-tree-select>
     </div>
   </div>
 </template>
 <script>
+import BScroll from "better-scroll";
 // import Search from "../../components/Search/Search.vue";
 export default {
   name: "Sort",
@@ -86,61 +89,1298 @@ export default {
         { text: "急诊科" },
         { text: "传染科" },
         { text: "影像科" },
-        { text: "美容减肥科" }
+        { text: "五官科" }
       ],
-      imglist: [
+      conterList: [
         {
-          type: 0,
-          name: "急诊科",
-          imgurl: require(".././../assets/images/department/emergency.png")
+          bannerurl: require(".././../assets/images/banner/general.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
         },
         {
-          type: 1,
-          name: "外科",
-          imgurl: require(".././../assets/images/department/surgery.png")
+          bannerurl: require(".././../assets/images/banner/surgery.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "普外科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "心胸外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "肝胆外科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "肠胃外科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "脑外科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "泌尿外科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "骨科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "肛肠外科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "乳腺外科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "血管外",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "器官移植",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "烧伤科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "手外科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "外伤科",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
         },
         {
-          type: 2,
-          name: "精神科",
-          imgurl: require(".././../assets/images/department/psychiatry.png")
+          bannerurl: require(".././../assets/images/banner/internal.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "呼吸内科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "消化内科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "神经内科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "内分泌科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "肾内科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "风湿科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "血液科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "心血管内科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            }
+          ]
         },
         {
-          type: 3,
-          name: "中医科",
-          imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+          bannerurl: require(".././../assets/images/banner/chinesemedical.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
         },
         {
-          type: 4,
-          name: "皮肤科",
-          imgurl: require(".././../assets/images/department/skin.png")
+          bannerurl: require(".././../assets/images/banner/general.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
         },
         {
-          type: 5,
-          name: "内科",
-          imgurl: require(".././../assets/images/department/internal.png")
+          bannerurl: require(".././../assets/images/banner/general.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
         },
         {
-          type: 6,
-          name: "儿科",
-          imgurl: require(".././../assets/images/department/pediatrics.png")
+          bannerurl: require(".././../assets/images/banner/skin.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
         },
         {
-          type: 7,
-          name: "妇科",
-          imgurl: require(".././../assets/images/department/gynaecology.png")
+          bannerurl: require(".././../assets/images/banner/general.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
         },
         {
-          type: 8,
-          name: "男科",
-          imgurl: require(".././../assets/images/department/andrology.png")
+          bannerurl: require(".././../assets/images/banner/andrology.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
         },
         {
-          type: 9,
-          name: "全部分类",
-          imgurl: require(".././../assets/images/department/classification.png")
+          bannerurl: require(".././../assets/images/banner/general.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
+        },
+        {
+          bannerurl: require(".././../assets/images/banner/general.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
+        },
+        {
+          bannerurl: require(".././../assets/images/banner/general.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
+        },
+        {
+          bannerurl: require(".././../assets/images/banner/general.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
+        },
+        {
+          bannerurl: require(".././../assets/images/banner/general.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
+        },
+        {
+          bannerurl: require(".././../assets/images/banner/infectieuses.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
+        },
+        {
+          bannerurl: require(".././../assets/images/banner/imaging.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "急诊科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "外科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "精神科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            },
+            {
+              type: 3,
+              name: "中医科",
+              imgurl: require(".././../assets/images/department/ChineseMedicine.png")
+            },
+            {
+              type: 4,
+              name: "皮肤科",
+              imgurl: require(".././../assets/images/department/skin.png")
+            },
+            {
+              type: 5,
+              name: "内科",
+              imgurl: require(".././../assets/images/department/internal.png")
+            },
+            {
+              type: 6,
+              name: "儿科",
+              imgurl: require(".././../assets/images/department/pediatrics.png")
+            },
+            {
+              type: 7,
+              name: "妇科",
+              imgurl: require(".././../assets/images/department/gynaecology.png")
+            },
+            {
+              type: 8,
+              name: "男科",
+              imgurl: require(".././../assets/images/department/andrology.png")
+            },
+            {
+              type: 9,
+              name: "妇产科",
+              imgurl: require(".././../assets/images/department/obstetrics.png")
+            },
+            {
+              type: 10,
+              name: "肿瘤科",
+              imgurl: require(".././../assets/images/department/oncology.png")
+            },
+            {
+              type: 11,
+              name: "麻醉科",
+              imgurl: require(".././../assets/images/department/anesthesiology.png")
+            },
+            {
+              type: 12,
+              name: "传染科",
+              imgurl: require(".././../assets/images/department/infectieuses.png")
+            },
+            {
+              type: 13,
+              name: "检查科",
+              imgurl: require(".././../assets/images/department/laboratory.png")
+            },
+            {
+              type: 14,
+              name: "胆识中心",
+              imgurl: require(".././../assets/images/department/CourageInsightCenter.png")
+            }
+          ]
+        },
+        {
+          bannerurl: require(".././../assets/images/banner/beauty.png"),
+          text: "全村人民的希望",
+          keshi: [
+            {
+              type: 0,
+              name: "眼科",
+              imgurl: require(".././../assets/images/department/emergency.png")
+            },
+            {
+              type: 1,
+              name: "耳鼻喉科",
+              imgurl: require(".././../assets/images/department/surgery.png")
+            },
+            {
+              type: 2,
+              name: "口腔科",
+              imgurl: require(".././../assets/images/department/psychiatry.png")
+            }
+          ]
         }
       ]
     };
+  },
+  created() {
+    this.$nextTick(() => {
+      this._initScroll();
+    });
   },
   methods: {
     handleScroll() {
@@ -156,10 +1396,16 @@ export default {
       } else {
         this.isFixed - false;
       }
+    },
+    _initScroll() {
+      this.treeScroll = new BScroll(this.$refs.conterWrapper, {});
     }
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+    // this.$nextTick(() => {
+    //   this._initScroll();
+    // });
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -186,7 +1432,7 @@ export default {
   .conter {
     padding-top: 54px;
 
-    .tree {
+    .tree-wrapper {
       text-align: center;
 
       .van-sidebar-item--select {
@@ -202,12 +1448,12 @@ export default {
       padding: 10px;
 
       .imgurl {
-        padding: 20px 20px;
-        height: 20%;
+        padding: 10px 10px;
+        height: 90px;
 
         img {
           width: 100%;
-          height: 20%;
+          height: 100%;
         }
       }
 
@@ -222,7 +1468,7 @@ export default {
         .icons {
           float: left;
           text-align: center;
-          width: 20%;
+          width: 30%;
           height: 70px;
           cursor: pointer;
 
