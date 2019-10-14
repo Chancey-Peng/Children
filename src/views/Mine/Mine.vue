@@ -26,7 +26,10 @@
       </div>
       <div class="function">
         <ul>
-          <li class="list"></li>
+          <li class="list border-1px" v-for="(item,index) in settinglist" :key="index">
+            <span class="icon iconfont" :class="classMap[item.type]"></span>
+            <span class="name">{{item.name}}</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -39,7 +42,44 @@
 export default {
   name: "Mine",
   data() {
-    return {};
+    return {
+      settinglist: [
+        {
+          type: 0,
+          name: "报告"
+        },
+        {
+          type: 1,
+          name: "检查"
+        },
+        {
+          type: 2,
+          name: "浏览"
+        },
+        {
+          type: 3,
+          name: "医生"
+        },
+        {
+          type: 4,
+          name: "档案"
+        },
+        {
+          type: 5,
+          name: "设置"
+        }
+      ]
+    };
+  },
+  created() {
+    this.classMap = [
+      "icon-baogao",
+      "icon-jiancha",
+      "icon-liulan",
+      "icon-yisheng",
+      "icon-dangan",
+      "icon-shezhi"
+    ];
   },
   components: {}
 };
@@ -81,8 +121,10 @@ export default {
 
     .header {
       // margin: 100px auto;
+      position: relative;
+
       .desc {
-        position: relative;
+        // position: relative;
         width: 100%;
         height: 150px;
         border-radius: 10px;
@@ -116,8 +158,8 @@ export default {
 
       .avator {
         position: absolute;
-        top: 100px;
-        left: 140px;
+        top: -45px;
+        left: 35%;
         width: 100px;
         height: 100px;
         border-radius: 50%;
@@ -133,7 +175,28 @@ export default {
     .function {
       margin: 20px auto;
       width: 100%;
-      height: 240px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 1px #808080;
+      line-height: 40px;
+
+      .list {
+        display: block;
+        padding: 5px 10px;
+        width: 100%;
+        height: 40px;
+
+        .icon {
+          font-size: 20px;
+          font-weight: bold;
+          color: #07c160;
+        }
+
+        .name {
+          margin-left: 10px;
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
     }
   }
 
