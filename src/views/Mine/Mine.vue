@@ -85,6 +85,8 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
+@import '../../common/icons/stylus/mixin.styl';
+
 .mine {
   .nav {
     padding: 10px 0;
@@ -182,8 +184,15 @@ export default {
       .list {
         display: block;
         padding: 5px 10px;
+        margin-left: 5px;
         width: 100%;
         height: 40px;
+        border-1px();
+
+        &:last-child {
+          border-none();
+          margin-bottom: 0px;
+        }
 
         .icon {
           font-size: 20px;
